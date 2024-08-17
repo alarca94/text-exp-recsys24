@@ -1,0 +1,12 @@
+scripts/
+docs/
+config/old
+tests.py
+
+.DS_Store
+.idea/
+*.pyc
+*.log
+*.lprof
+*.egg-info/
+__pycache__
