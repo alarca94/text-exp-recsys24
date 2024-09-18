@@ -1,0 +1,47 @@
+data:
+  train_workers: 0
+  eval_workers: 0
+  hist_len: "custom"
+  word_tok: "default"
+  coldstart_fill: False
+  filter_item_attr: True
+  batch_size: 16
+  emb_models:
+    - type: huggingface
+      name: "distilbert-base-uncased"  # "all-MiniLM-L6-v2"
+      batch_size: 128
+      apply_to: ["text"]
+    - type: huggingface
+      name: "sentence-transformers/average_word_embeddings_glove.840B.300d"
+      batch_size: 64
+      apply_to: ["feature"]
+
+model:
+  name: GREENer
+  text_emsize: 768
+  feat_emsize: 300
+  hsize: 256
+  load_feature_embeddings: True
+  load_text_embeddings: True
+  text_finetune_flag: False
+  # gat_layers: 2
+  use_ilp: True
+  use_proj: True  # Even though some embeddings don't need projection layers, they are used anyway
+  labels: "bleu"
+  gat_num_heads: [4, 1]
+  gat_dropout: 0.01
+#  n_proc:
+#    yelp: 9
+#    tripadvisor: 9
+#    ratebeer: 5
+  mtl_aggregator:
+    # NOTE: In the paper, MTL eq. shows Lambda * L1 + (1 - Lambda) * L2 but in their code, L1 + Lambda * L2
+    name: "sum"
+    weights:
+      explanation: 0.5  # Lambda
+      feature: 0.5      # (1 - Lambda)
+
+train:
+  optim:
+    name: "adam"
+    lr: 0.0002

@@ -1,0 +1,43 @@
+data:
+  train_workers: 0
+  eval_workers: 0
+  hist_len: 5
+  word_tok: "default"
+  profile_sampler: "temporal_rand"
+  profile_sampler_level: "interaction"
+  coldstart_fill: False
+  batch_size: 128
+#  emb_models:
+#    - type: huggingface
+#      name: "all-MiniLM-L6-v2"
+#      batch_size: 128
+#      apply_to: [ "text" ]
+
+model:
+  name: ExBERT
+  suffix: "-naive"
+  emsize: 512
+  nhid: 2048
+  nhead: 2
+  nlayers: 2
+  dropout: 0.2
+#  use_feature: False
+  mask_type: "peter"
+  mtl_aggregator:
+    name: "sum"
+    weights:
+      explanation: 1.0
+      context: 1.0
+      rating: 0.1
+      next_sentence_prediction: 0.5
+
+train:
+  clip_norm: 1.0
+  ema:
+    decay: 0.95
+  scheduler:
+    name: "steplr"
+    gamma: 0.8
+  optim:
+    name: "sgd"
+    lr: 1.0

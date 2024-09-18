@@ -1,0 +1,31 @@
+data:
+  train_workers: 0
+  eval_workers: 0
+  hist_len: 0
+  word_tok: "default"
+  coldstart_fill: False
+  batch_size: 128
+
+model:
+  name: PETER
+  emsize: 512
+  nhid: 2048
+  nhead: 2
+  nlayers: 2
+  dropout: 0.2
+  use_feature: False
+  mask_type: "peter"
+  mtl_aggregator:
+    name: "sum"
+    weights:
+      explanation: 1.0
+      context: 1.0
+      rating: 0.1
+
+train:
+  clip_norm: 1.0
+  scheduler:
+    name: "steplr"
+  optim:
+    name: "adamw"
+    lr: 0.001

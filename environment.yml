@@ -1,0 +1,11 @@
+name: text_exp
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python==3.10.13
+  - faiss-gpu==1.8.0
+  - pip
+  - pip:
+    - -r requirements.txt

@@ -1,0 +1,19 @@
+# Training-related
+batch_first: True
+batch_size: 128
+# Task-related Requirements
+mod_context_flag: False
+coldstart_fill: True
+# Pre-compute embeddings
+emb_models: null
+# Tokenization parameters
+special_items: !!python/tuple []
+word_tok: "bpe"
+vocab_sz: 20000
+retrain_tok: False
+hf_auth_token: False
+# Filtering
+assert_test_in_train: True
+train_workers: 0
+eval_workers: 5
+  

@@ -1,0 +1,6 @@
+name: ""
+suffix: ""
+is_wrapper: False
+greedy: True
+mtl_aggregator:
+  name: "sum"

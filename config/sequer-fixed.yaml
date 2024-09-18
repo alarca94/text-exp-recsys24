@@ -1,0 +1,31 @@
+data:
+  word_tok: "default"
+  batch_size: 128
+  gen_sampling: "fixed"
+  hist_len: 20
+  train_workers: 0
+
+model:
+  name: "SEQUER"
+  suffix: "-fixed"
+  emsize: 256
+  nhead: 2
+  nhid: 2048
+  nlayers: 2
+  dropout: 0.1
+  use_feature: False
+  mtl_aggregator:
+    name: "sum"
+    weights:
+      rating: 0.1
+      next_item: 0.1
+      context: 1.0
+      explanation: 1.0
+
+train:
+  clip_norm: 1.0
+  scheduler:
+    name: "steplr"
+  optim:
+    name: "adamw"
+    lr: 0.001

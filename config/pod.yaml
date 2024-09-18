@@ -1,0 +1,23 @@
+data:
+  word_tok: "t5-small"
+  batch_size: 64
+  eval_batch_size: 32
+  train_workers: 0
+  negative_num: 99
+  hist_len: 20
+  requires_nextitem: True
+
+model:
+  name: POD
+  greedy: False  # The model only implements the beam search approach
+  is_wrapper: True
+#  emsize: 300
+#  hidden_size: 400
+#  nlayers_rr: 4
+#  mtl_aggregator:
+#    name: "sum"
+
+train:
+  optim:
+    name: "adamw"
+    lr: 0.0005

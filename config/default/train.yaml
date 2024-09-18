@@ -1,0 +1,12 @@
+epochs: 100
+#batch_size: 128
+epoch_log_steps: 5
+#log_interval: 200
+clip_norm: null
+optim:
+  name: "adamw"
+scheduler:
+  name: "none"
+early_stop:
+  patience: 5
+  min_delta: 0.0

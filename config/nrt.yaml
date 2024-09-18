@@ -1,0 +1,18 @@
+data:
+  word_tok: "default"
+  batch_size: 200
+  train_workers: 2
+
+model:
+  name: NRT
+  emsize: 300
+  hidden_size: 400
+  nlayers_rr: 4
+  mtl_aggregator:
+    name: "sum"
+
+train:
+  clip_norm: 1.0
+  optim:
+    name: "adam"
+    lr: 0.0001

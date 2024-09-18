@@ -1,0 +1,43 @@
+data:
+  train_workers: 0
+  eval_workers: 0
+  hist_len: 0
+  word_tok: "default"
+  use_ann: False
+#  ann_cells: 1000
+  retrieval_n_exps: 3
+  retrieval_n_aspects: 2
+  coldstart_fill: False
+  batch_size: 128
+  emb_models:
+    - type: huggingface
+      name: "paraphrase-MiniLM-L6-v2"
+      batch_size: 128
+      apply_to: [ "text", "aspect" ]
+
+model:
+  name: ERRA
+  emsize: 384
+  nhid: 1536
+  nhead: 2
+  nlayers: 2
+  dropout: 0.2
+  use_feature: True
+  mask_type: "peter"
+  mtl_aggregator:
+    name: "sum"
+    weights:
+      explanation: 1.0
+      aspect: 0.05
+      context: 0.8
+      rating: 0.2
+
+train:
+  clip_norm: 1.0
+  scheduler:
+    name: "steplr"
+    gamma: 0.25
+  optim:
+    name: "adam"
+    lr: 0.1
+    weight_decay: 0.0001  # In PyTorch, Adam weight_decay works the same as L2 regularization

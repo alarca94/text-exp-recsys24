@@ -1,0 +1,21 @@
+data:
+  word_tok: "default"
+  summarizer_model: "sentence-transformers/all-MiniLM-L6-v2"
+  batch_size: 128
+  train_workers: 0
+
+model:
+  name: ESCOFILT
+  emsize: 1024
+#  load_user_embeddings: True
+#  load_item_embeddings: True
+  reduce_dim: 32
+  topk: 5
+  mlp_size: 4
+#  mtl_aggregator:
+#    name: "sum"
+
+train:
+  optim:
+    name: "adam"
+    lr: 0.006

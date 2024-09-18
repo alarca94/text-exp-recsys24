@@ -1,0 +1,40 @@
+-f https://download.pytorch.org/whl/cu121
+-f https://data.pyg.org/whl/torch-2.1.2+cu121.html
+# General
+PyYAML==6.0.1
+pandarallel==1.6.5
+nltk==3.8.1
+numpy==1.26.4
+pandas==2.2.2
+stanza==1.8.2
+scipy==1.13.1
+scikit-learn==1.5.0
+
+# Data, Models
+torch==2.1.2
+sentence-transformers==2.3.1
+sentencepiece==0.2.0
+tokenizers==0.15.1
+transformers==4.37.2
+
+# Evaluation
+bert-score==0.3.13
+
+# Data Visualization, Logging
+matplotlib==3.5.2
+seaborn==0.13.2
+tensorboard==2.15.2
+
+# ESCOFILT
+spacy==3.7.3
+
+# ERRA
+# faiss-gpu==1.8.0
+
+# GREENer
+gurobipy==11.0.0
+pyomo==6.7.0
+torch-scatter
+torch-sparse
+torch_geometric>=2.0.0
+pyg-lib
